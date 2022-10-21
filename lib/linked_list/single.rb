@@ -111,6 +111,7 @@ module LinkedList
       @head = new_node
       @tail = new_node
       @head.next_node = @tail
+      @tail.next_node = nil
     end
   end
 end
