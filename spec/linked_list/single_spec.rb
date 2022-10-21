@@ -183,4 +183,28 @@ RSpec.describe LinkedList::Single do
       end
     end
   end
+
+  describe '#contains?' do
+    describe 'when the list is empty' do
+      it 'returns false' do
+        expect(list.contains?(1)).to be(false)
+      end
+    end
+
+    describe 'when the list is not empty' do
+      before do
+        list.append(1)
+        list.append(2)
+        list.append(3)
+      end
+
+      it 'returns true if the value is in the list' do
+        expect(list.contains?(2)).to be(true)
+      end
+
+      it 'returns false if the value is not in the list' do
+        expect(list.contains?(4)).to be(false)
+      end
+    end
+  end
 end
