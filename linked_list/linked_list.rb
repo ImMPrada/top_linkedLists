@@ -69,6 +69,18 @@ module LinkedList
       is_there
     end
 
+    def find(value)
+      index = nil
+      return index if @size.zero?
+
+      (0...@size).each do |i|
+        index = i if at(i).value == value
+        break if index
+      end
+
+      index
+    end
+
     private
 
     def first_add(new_node)
