@@ -81,6 +81,21 @@ module LinkedList
       index
     end
 
+    def insert_at(value, index)
+      return nil if index > @size - 1 || @size.zero?
+
+      @size += 1
+
+      return prepend(value) if index.zero?
+      return append(value) if index == @size - 1
+
+      new_node = Node.new(value)
+      previous_node = at(index - 1)
+      next_node = at(index)
+      previous_node.next_node = new_node
+      new_node.next_node = next_node
+    end
+
     def to_s
       return 'nil' if @size.zero?
 
