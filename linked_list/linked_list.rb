@@ -57,6 +57,18 @@ module LinkedList
       end
     end
 
+    def contains?(value)
+      is_there = false
+      return is_there if @size.zero?
+
+      (0...@size).each do |i|
+        is_there = at(i).value == value
+        break if is_there
+      end
+
+      is_there
+    end
+
     private
 
     def first_add(new_node)
