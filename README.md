@@ -11,7 +11,7 @@ In some programming languages the size of an array is a concern and one of the w
 
 Luckily in Ruby arrays aren’t limited to a certain size, so you don’t have to think about overcoming that limitation.
 
-So if array size is not a limitation in Ruby, are linked lists really necessary? The short answer to that is no; however, it’s the simplest of the dynamic data structures and it will give you a solid foundation, so you can understand more complex data structures like graphs and binary trees with more ease.</q>
+So if array size is not a limitation in Ruby, are linked lists really necessary? The short answer to that is no; however, it’s the simplest of the dynamic data structures and it will give you a solid foundation, so you can understand more complex data structures like graphs and binary trees with more ease.<q>
 
 
 ### How to try
