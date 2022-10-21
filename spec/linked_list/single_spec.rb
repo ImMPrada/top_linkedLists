@@ -207,4 +207,28 @@ RSpec.describe LinkedList::Single do
       end
     end
   end
+
+  describe '#find' do
+    describe 'when the list is empty' do
+      it 'returns nil' do
+        expect(list.find(1)).to be_nil
+      end
+    end
+
+    describe 'when the list is not empty' do
+      before do
+        list.append(1)
+        list.append(2)
+        list.append(3)
+      end
+
+      it 'returns the index of the given value' do
+        expect(list.find(2)).to eq(1)
+      end
+
+      it 'returns nil if the value is not in the list' do
+        expect(list.find(4)).to be_nil
+      end
+    end
+  end
 end
