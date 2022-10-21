@@ -147,7 +147,7 @@ RSpec.describe LinkedList::Single do
 
       it 'sets the head and tail to nil' do
         list.pop
-        expect(list.head == nil && list.tail == nil).to be(true)
+        expect(list.head.nil? && list.tail.nil?).to be(true)
       end
 
       it 'decrements the size' do
