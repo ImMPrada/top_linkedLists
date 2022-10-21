@@ -36,7 +36,7 @@ module LinkedList
     end
 
     def at(index)
-      return nil if index > @size - 1 || @size.zero?
+      return nil if !(0...@size).include?(index) || @size.zero?
 
       return @head if index.zero?
 

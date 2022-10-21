@@ -106,4 +106,28 @@ RSpec.describe LinkedList::Single do
       end
     end
   end
+
+  describe '#at' do
+    describe 'when the list is empty' do
+      it 'returns nil' do
+        expect(list.at(0)).to be_nil
+      end
+    end
+
+    describe 'when the list is not empty' do
+      before do
+        list.append(1)
+        list.append(2)
+        list.append(3)
+      end
+
+      it 'returns the node at the given index' do
+        expect(list.at(1).value).to eq(2)
+      end
+
+      it 'returns nil if the index is out of range' do
+        expect(list.at(5)).to be_nil
+      end
+    end
+  end
 end
