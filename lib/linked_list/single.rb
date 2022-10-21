@@ -87,7 +87,7 @@ module LinkedList
     end
 
     def insert_at(value, index)
-      return nil if index > @size - 1 || @size.zero?
+      return nil if !(0...@size).to_a.include?(index) || @size.zero?
 
       @size += 1
 
@@ -98,6 +98,8 @@ module LinkedList
       next_node = at(index)
       new_node = Node.new(value, next_node)
       previous_node.next_node = new_node
+
+      value
     end
 
     def to_s

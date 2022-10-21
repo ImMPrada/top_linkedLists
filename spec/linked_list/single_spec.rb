@@ -231,4 +231,31 @@ RSpec.describe LinkedList::Single do
       end
     end
   end
+
+  describe '#insert_at' do
+    describe 'when the list is empty' do
+      it 'returns nil' do
+        expect(list.insert_at(1, 1)).to be_nil
+      end
+    end
+
+    describe 'when the list is not empty' do
+      before do
+        list.append(1)
+        list.append(2)
+        list.append(3)
+      end
+
+      it 'inserts a new node at the given index' do
+        index_to_test = 1
+        previous_value_at_index = list.at(index_to_test)
+        list.insert_at(4, index_to_test)
+        expect(list.at(index_to_test).value).not_to be(previous_value_at_index)
+      end
+
+      it 'returns nil if the index is out of range' do
+        expect(list.insert_at(4, 5)).to be_nil
+      end
+    end
+  end
 end
