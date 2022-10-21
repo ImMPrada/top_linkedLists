@@ -89,11 +89,10 @@ module LinkedList
       return prepend(value) if index.zero?
       return append(value) if index == @size - 1
 
-      new_node = Node.new(value)
       previous_node = at(index - 1)
       next_node = at(index)
+      new_node = Node.new(value, next_node)
       previous_node.next_node = new_node
-      new_node.next_node = next_node
     end
 
     def to_s
