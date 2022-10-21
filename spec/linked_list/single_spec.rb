@@ -130,4 +130,57 @@ RSpec.describe LinkedList::Single do
       end
     end
   end
+
+  describe '#pop' do
+    describe 'when the list is empty' do
+      it 'returns nil' do
+        expect(list.pop).to be_nil
+      end
+    end
+
+    describe 'when the list size is 1' do
+      before { list.append(1) }
+
+      it 'returns the value of the node' do
+        expect(list.pop).to eq(1)
+      end
+
+      it 'sets the head and tail to nil' do
+        list.pop
+        expect(list.head == nil && list.tail == nil).to be(true)
+      end
+
+      it 'decrements the size' do
+        list.pop
+        expect(list.size).to eq(0)
+      end
+    end
+
+    describe 'when the list is not empty' do
+      before do
+        list.append(1)
+        list.append(2)
+        list.append(3)
+      end
+
+      it 'returns the last node value' do
+        expect(list.pop).to eq(3)
+      end
+
+      it 'sets the tail to the previous node' do
+        list.pop
+        expect(list.tail.value).to eq(2)
+      end
+
+      it 'sets the tail next_node to nil' do
+        list.pop
+        expect(list.tail.next_node).to be_nil
+      end
+
+      it 'decrements the size' do
+        list.pop
+        expect(list.size).to eq(2)
+      end
+    end
+  end
 end

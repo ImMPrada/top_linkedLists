@@ -48,6 +48,8 @@ module LinkedList
     def pop
       return nil if @size.zero?
 
+      response = @tail.value
+
       if @size == 1
         @head = nil
         @tail = nil
@@ -55,6 +57,9 @@ module LinkedList
         @tail = at(@size - 2)
         @tail.next_node = nil
       end
+
+      @size -= 1
+      response
     end
 
     def contains?(value)
