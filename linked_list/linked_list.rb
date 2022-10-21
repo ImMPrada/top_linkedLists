@@ -35,6 +35,16 @@ module LinkedList
       end
     end
 
+    def at(index)
+      return nil if index > @size - 1 || @size.zero?
+
+      return @head if index.zero?
+
+      node = @head
+      index.times { node = node.next_node }
+      node
+    end
+
     private
 
     def first_add(new_node)
