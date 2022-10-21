@@ -81,6 +81,15 @@ module LinkedList
       index
     end
 
+    def to_s
+      return 'nil' if @size.zero?
+
+      response = "( #{@head.value} ) -> "
+      index.times { |node| response += "( #{node.next_node.value} ) ->" }
+
+      response += 'nil'
+    end
+
     private
 
     def first_add(new_node)
