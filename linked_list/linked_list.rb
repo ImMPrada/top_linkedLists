@@ -45,6 +45,18 @@ module LinkedList
       node
     end
 
+    def pop
+      return nil if @size.zero?
+
+      if @size == 1
+        @head = nil
+        @tail = nil
+      else
+        @tail = at(@size - 2)
+        @tail.next_node = nil
+      end
+    end
+
     private
 
     def first_add(new_node)
