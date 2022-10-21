@@ -258,4 +258,43 @@ RSpec.describe LinkedList::Single do
       end
     end
   end
+
+  describe '#to_s' do
+    describe 'when the list is empty' do
+      let(:expected_string) { 'nil' }
+
+      it 'returns an empty string' do
+        expect(list.to_s).to eq(expected_string)
+      end
+    end
+
+    describe 'when the list is not empty, with size == 1' do
+      let(:expected_string) { '( 1 ) -> nil' }
+
+      before do
+        list.append(1)
+      end
+
+      it 'returns a string with the values of the nodes' do
+        expect(list.to_s).to eq(expected_string)
+      end
+    end
+
+    describe 'when the list is not empty' do
+      let(:expected_string) { '( 1 ) -> ( 2 ) -> ( 3 ) -> ( 4 ) -> ( 5 ) -> ( a string ) -> nil' }
+
+      before do
+        list.append(1)
+        list.append(2)
+        list.append(3)
+        list.append(4)
+        list.append(5)
+        list.append('a string')
+      end
+
+      it 'returns a string with the values of the nodes' do
+        expect(list.to_s).to eq(expected_string)
+      end
+    end
+  end
 end

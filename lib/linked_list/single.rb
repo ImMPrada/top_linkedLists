@@ -105,10 +105,15 @@ module LinkedList
     def to_s
       return 'nil' if @size.zero?
 
-      response = "( #{@head.value} ) -> "
-      index.times { |node| response += "( #{node.next_node.value} ) ->" }
+      node = @head
+      steps = @size - 1
+      response = "( #{node.value} ) ->"
+      steps.times do
+        node = node.next_node
+        response += " ( #{node.value} ) ->"
+      end
 
-      response += 'nil'
+      response += ' nil'
     end
 
     private
